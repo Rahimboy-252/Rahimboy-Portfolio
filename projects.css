@@ -1,0 +1,286 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --bg-color: #1f242d;
+    --second-bg-color: #323946;
+    --text-color: #fff;
+    --main-color: #0ef;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* Projects sahifasi uchun header va navigatsiya */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 9%;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 2.5rem;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.nav {
+    display: flex;
+    gap: 2.5rem;
+}
+
+.nav a {
+    font-size: 1.7rem;
+    color: #fff;
+    font-weight: 500;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.nav a:hover,
+.nav a.active {
+    color: var(--main-color);
+}
+
+/* Mobil versiya uchun stillar */
+@media (max-width: 768px) {
+    .header {
+        padding: 2rem 3%;
+    }
+
+    #menu-icon {
+        display: block !important;
+        color: #fff;
+        font-size: 2.5rem;
+        order: -1;
+        z-index: 101;
+        cursor: pointer;
+    }
+
+    .nav {
+        position: fixed;
+        top: 0;
+        left: -50%;
+        width: 50%;
+        height: 100vh;
+        padding: 6rem 2rem 2rem;
+        background: #031540;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        transition: .25s ease;
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+    }
+
+    .nav.active {
+        left: 0;
+    }
+
+    .nav a {
+        display: block;
+        font-size: 2rem;
+        padding: 1rem 0;
+        color: #fff;
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav a:last-child {
+        border-bottom: none;
+    }
+}
+
+/* Loyihalar bo'limi */
+.projects-section {
+    min-height: 100vh;
+    padding: 10rem 9% 2rem;
+}
+
+.projects-title {
+    position: relative;
+    text-align: center;
+    font-size: 5.6rem;
+    margin-bottom: 5rem;
+    line-height: 1.2;
+    display: inline-block;
+}
+
+.projects-title span {
+    color: var(--main-color);
+}
+
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
+    margin: 0 auto;
+}
+
+.project-card {
+    position: relative;
+    border-radius: 2rem;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, .1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background: var(--second-bg-color);
+    padding-bottom: 2rem;
+    transition: .5s ease;
+}
+
+.project-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 2rem var(--main-color);
+}
+
+.project-img {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.project-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .5s ease;
+}
+
+.project-card:hover .project-img img {
+    transform: scale(1.1);
+}
+
+.project-info {
+    padding: 2.5rem 2rem;
+    flex: 1;
+}
+
+.project-info h3 {
+    font-size: 2.6rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--main-color);
+}
+
+.project-info p {
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.project-tech span {
+    padding: 1rem 2rem;
+    background: rgba(0, 238, 255, 0.1);
+    border: .2rem solid var(--main-color);
+    border-radius: 4rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--text-color);
+    transition: .5s ease;
+}
+
+.project-tech span:hover {
+    background: var(--main-color);
+    color: var(--second-bg-color);
+    box-shadow: 0 0 1rem var(--main-color);
+}
+
+.project-links {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2rem;
+}
+
+.project-links a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 15rem;
+    height: 4.5rem;
+    border-radius: 4rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    transition: .5s ease;
+}
+
+.demo-btn {
+    background: var(--main-color);
+    color: var(--second-bg-color);
+}
+
+.code-btn {
+    border: .2rem solid var(--main-color);
+    color: var(--main-color);
+}
+
+.demo-btn:hover, .code-btn:hover {
+    box-shadow: 0 0 1rem var(--main-color);
+}
+
+.code-btn:hover {
+    background: var(--main-color);
+    color: var(--second-bg-color);
+}
+
+/* BREAKPOINTS */
+@media (max-width: 1200px) {
+    html {
+        font-size: 55%;
+    }
+}
+
+@media (max-width: 991px) {
+    .projects-section {
+        padding: 10rem 3% 2rem;
+    }
+
+    .projects-container {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
+
+@media (max-width: 450px) {
+    html {
+        font-size: 50%;
+    }
+}
+
+@media (max-width: 365px) {
+    .projects-title {
+        font-size: 3.6rem;
+    }
+} 

@@ -1,0 +1,57 @@
+/* Mobil versiya uchun stillar */
+@media (max-width: 768px) {
+    #menu-icon {
+        display: block !important;
+        color: #fff;
+        font-size: 2.5rem;
+        order: -1;
+        z-index: 101;
+        cursor: pointer;
+    }
+
+    .header {
+        padding: 2rem 3%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav {
+        position: fixed;
+        top: 0;
+        left: -50%;
+        width: 50%;
+        height: 100vh;
+        padding: 6rem 2rem 2rem;
+        background: #031540;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        transition: .25s ease;
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+    }
+
+    .nav.active {
+        left: 0;
+    }
+
+    .nav a {
+        display: block;
+        font-size: 2rem;
+        padding: 1rem 0;
+        color: #fff;
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav a:last-child {
+        border-bottom: none;
+    }
+
+    .logo {
+        font-size: 2.5rem;
+        color: #fff;
+    }
+} 

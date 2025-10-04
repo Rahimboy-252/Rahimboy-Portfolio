@@ -1,0 +1,252 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --bg-color: #1f242d;
+    --second-bg-color: #323946;
+    --text-color: #fff;
+    --main-color: #0ef;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+.contact-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 9%;
+    background: rgba(31, 36, 45, 0.9);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.contact-logo {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.contact-logo:hover {
+    color: var(--main-color);
+}
+
+.contact-menu {
+    display: flex;
+    gap: 3.5rem;
+}
+
+.contact-menu a {
+    font-size: 1.7rem;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: .3s;
+    position: relative;
+}
+
+.contact-menu a::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: .2rem;
+    background: var(--main-color);
+    transition: .3s ease;
+}
+
+.contact-menu a:hover::before,
+.contact-menu a.active::before {
+    width: 100%;
+}
+
+.contact-menu a:hover,
+.contact-menu a.active {
+    color: var(--main-color);
+}
+
+.contact-section {
+    min-height: 100vh;
+    padding: 10rem 9% 2rem;
+}
+
+.contact-title {
+    font-size: 5.6rem;
+    margin-bottom: 5rem;
+    text-align: center;
+    color: var(--text-color);
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-info h3 {
+    font-size: 3.2rem;
+    margin-bottom: 2rem;
+    color: var(--main-color);
+}
+
+.contact-info p {
+    font-size: 1.6rem;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    background: var(--second-bg-color);
+    border-radius: 1rem;
+    transition: .3s ease;
+}
+
+.contact-item:hover {
+    transform: translateX(1rem);
+}
+
+.contact-item i {
+    font-size: 2.5rem;
+    color: var(--main-color);
+}
+
+.item-text h4 {
+    font-size: 2rem;
+    margin-bottom: .5rem;
+}
+
+.item-text p {
+    font-size: 1.6rem;
+    margin: 0;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.input-box input,
+.input-box textarea {
+    width: 100%;
+    padding: 1.5rem 2rem;
+    font-size: 1.6rem;
+    color: var(--text-color);
+    background: var(--second-bg-color);
+    border-radius: .8rem;
+    transition: .3s ease;
+}
+
+.input-box textarea {
+    resize: none;
+    height: 15rem;
+}
+
+.input-box input:focus,
+.input-box textarea:focus {
+    box-shadow: 0 0 1rem var(--main-color);
+}
+
+.btn {
+    display: inline-block;
+    padding: 1.2rem 2.8rem;
+    background: var(--main-color);
+    border-radius: 4rem;
+    font-size: 1.6rem;
+    color: var(--second-bg-color);
+    font-weight: 600;
+    transition: .5s ease;
+    cursor: pointer;
+}
+
+.btn:hover {
+    box-shadow: 0 0 1rem var(--main-color);
+}
+
+.projects-link {
+    /* Bu yerda hech qanday maxsus uslub bo'lmasligi kerak */
+}
+
+/* BREAKPOINTS */
+@media (max-width: 1200px) {
+    html {
+        font-size: 55%;
+    }
+}
+
+@media (max-width: 991px) {
+    .contact-section {
+        padding: 10rem 3% 2rem;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-nav {
+        padding: 2rem 3%;
+    }
+
+    .contact-menu {
+        gap: 2rem;
+    }
+
+    .contact-title {
+        font-size: 4.5rem;
+    }
+}
+
+@media (max-width: 450px) {
+    html {
+        font-size: 50%;
+    }
+
+    .contact-menu {
+        gap: 1.5rem;
+    }
+
+    .contact-menu a {
+        font-size: 1.5rem;
+    }
+
+    .contact-title {
+        font-size: 3.6rem;
+    }
+} 

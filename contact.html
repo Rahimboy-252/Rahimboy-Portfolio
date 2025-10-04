@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bog'lanish</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="contact.css">
+    <!-- CSS va Boxicons -->
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo" style="color: #fff;">U. Rahimboy</a>
+        <i class='bx bx-menu' id="menu-icon"></i>
+        <nav class="nav">
+            <a href="index.html">Bosh sahifa</a>
+            <a href="about.html">Men haqimda</a>
+            <a href="projects.html">Loyihalar</a>
+            <a href="contact.html" class="active">Bog'lanish</a>
+        </nav>
+    </header>
+
+    <section class="contact-section">
+        <h2 class="contact-title">Bog'lanish</h2>
+        
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Men bilan bog'laning</h3>
+                <p>Savollaringiz bormi? Men bilan bog'laning va men sizga yordam berishdan xursand bo'laman.</p>
+                
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i class='bx bx-envelope'></i>
+                        <div class="item-text">
+                            <h4>Email</h4>
+                            <p>crazzyfrank06052@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class='bx bx-phone'></i>
+                        <div class="item-text">
+                            <h4>Telefon</h4>
+                            <p>+998 ** ** ** **</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class='bx bx-map'></i>
+                        <div class="item-text">
+                            <h4>Manzil</h4>
+                            <p>Xorazm, Uzbekistan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <form class="contact-form" id="contactForm" onsubmit="sendEmail(event)">
+                <div class="input-box">
+                    <input type="text" id="name" placeholder="To'liq ism" required>
+                </div>
+                <div class="input-box">
+                    <input type="email" id="email" placeholder="Email manzil" required>
+                </div>
+                <div class="input-box">
+                    <input type="text" id="phone" placeholder="Telefon raqam" required>
+                </div>
+                <div class="input-box">
+                    <textarea id="message" placeholder="Xabaringiz" required></textarea>
+                </div>
+                <button type="submit" class="btn">Yuborish</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Body tegi yopilishidan oldin JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init("public_key");
+        })();
+
+        function sendEmail(e) {
+            e.preventDefault();
+
+            emailjs.send(
+                'service_id',
+                'template_id',
+                {
+                    from_name: document.getElementById('name').value,
+                    email_id: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    message: document.getElementById('message').value
+                }
+            )
+            .then(
+                function(response) {
+                    console.log("SUCCESS", response);
+                    alert('Xabar muvaffaqiyatli yuborildi!');
+                    document.getElementById('contactForm').reset();
+                }, 
+                function(error) {
+                    console.log("FAILED", error);
+                    alert('Xatolik yuz berdi: ' + JSON.stringify(error));
+                }
+            );
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html> 
